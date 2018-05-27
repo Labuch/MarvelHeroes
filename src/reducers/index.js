@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux';
+import ListReducer from "./listReducer";
+import ItemReducer from "./itemReducer";
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+    list: ListReducer,
+    activeItem: ItemReducer,
 });
 
 export default rootReducer;

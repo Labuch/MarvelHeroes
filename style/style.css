@@ -1,0 +1,52 @@
+.heroesIndex{
+    background: red ;
+
+}
+
+.index
+{
+    display: flex ;
+    list-style-type: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.characterItem {
+    margin-top: 5px;
+    width: 120px;
+    display: flex ;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding : 0.5em ;
+    background: white;
+}
+
+.characterCard{
+
+    display: grid;
+    grid-template-columns: 250px ;
+}
+
+.Card{
+
+    display: grid;
+    grid-template-columns: 250px ;
+}
+.cardImage{
+    grid-column:1;
+}
+.characterDescription{
+    border-radius: 2px ;
+    background: #d3d3d3;
+
+
+}
+
+.characterDetail{
+    display : flex;
+    flex-direction: column;
+    grid-column:2;
+    grid-row:1;
+
+}
