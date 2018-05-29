@@ -10,11 +10,11 @@ class ItemDetail extends Component {
         this.props.fetchData(`${type}/${id}`);
     }
     renderSubElements(type) {
-        const itemDetail  = this.props.itemDetail[0];
-
+        const itemDetail  = this.props.itemDetail[0][type];
+        const itemsToShow =  itemDetail.items ? itemDetail.items: [itemDetail];
         return (
             <ul>
-                {itemDetail[type].items.map((item,index) => <li key={type+index} className="list-group-item"><Link
+                {   itemsToShow.map((item,index) => <li key={type+index} className="list-group-item"><Link
                     to={`/item/${item.resourceURI.replace("http://gateway.marvel.com/v1/public/","")}`}>{item.name}</Link></li>)}
             </ul>
         );
@@ -30,11 +30,13 @@ class ItemDetail extends Component {
                  src={itemDetail.images[0].path + "." + itemDetail.images[0].extension} width="200"
                  />
             <Link style={{gridColumn: 1}} to="/">Back To Index</Link>
-            <div className="characterDetail">
+            <div className="itemDetail">
                 <h3>{itemDetail.title}</h3>
-                <p className="heroDescription">{itemDetail.description}</p>
+                <p className="description">{itemDetail.description}</p>
                 <h6>Stories</h6>
                 {this.renderSubElements('stories')}
+                <h6>Serie</h6>
+                {this.renderSubElements('series')}
             </div>
 
         </div>);
@@ -51,9 +53,9 @@ class ItemDetail extends Component {
                      width="200"
                 />
                 <Link style={{gridColumn: 1}} to="/">Back To Index</Link>
-                <div className="characterDetail">
+                <div className="itemDetail">
                     <h3>{itemDetail.title}</h3>
-                    <p className="heroDescription">{itemDetail.description}</p>
+                    <p className="description">{itemDetail.description}</p>
                     <h6>Comics</h6>
                     {this.renderSubElements('comics')}
                 </div>
@@ -65,15 +67,14 @@ class ItemDetail extends Component {
         const itemDetail  = this.props.itemDetail[0];
         return (
             <div className="Card">
-                <img className="cardImage"
-                     src={itemDetail.images[0].path + "." + itemDetail.images[0].extension} width="200"
-                />
                 <Link style={{gridColumn: 1}} to="/">Back To Index</Link>
-                <div className="ItemDetail">
+                <div className="itemDetail">
                     <h3>{itemDetail.title}</h3>
-                    <p className="Description">{itemDetail.description}</p>
+                    <p className="description">{itemDetail.description}</p>
                     <h6>Comics</h6>
                     {this.renderSubElements('comics')}
+                    <h6>Stories</h6>
+                    {this.renderSubElements('stories')}
                 </div>
 
             </div>);

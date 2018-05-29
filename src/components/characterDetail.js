@@ -19,9 +19,9 @@ class CharacterDetail extends Component {
                      src={characterDetail.thumbnail.path + "." + characterDetail.thumbnail.extension} width="200"
                      height="200"/>
                 <Link style={{gridColumn: 1}} to="/">Back To Index</Link>
-                <div className="characterDetail">
+                <div className="itemDetail">
                     <h3>{characterDetail.name}</h3>
-                    <p className="heroDescription">{characterDetail.description}</p>
+                    <p className="description">{characterDetail.description}</p>
                     <h6>Comics</h6>
                     {this.renderSubElements('comics')}
                     <h6>Series</h6>
@@ -37,16 +37,18 @@ class CharacterDetail extends Component {
 
 
     renderSubElements(type) {
-        const characterDetail  = this.props.characterDetail[0];
-
+        const itemDetail  = this.props.characterDetail[0][type];
+        const itemsToShow =  itemDetail.items ? itemDetail.items: [itemDetail];
         return (
             <ul>
-                {characterDetail[type].items.map((item,index) => <li key={type +index} className="list-group-item"><Link
-        to={`/item/${item.resourceURI.replace("http://gateway.marvel.com/v1/public/","")}`}>{item.name}</Link></li>)}
+                {   itemsToShow.map((item,index) => <li key={type+index} className="list-group-item"><Link
+                    to={`/item/${item.resourceURI.replace("http://gateway.marvel.com/v1/public/","")}`}>{item.name}</Link></li>)}
             </ul>
         );
 
     }
+
+
 
     render()
     {

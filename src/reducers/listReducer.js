@@ -1,6 +1,6 @@
 import {FETCH_STORIES, FETCH_CHARACTERS, FETCH_COMICS_LIST, FETCH_SERIES} from "../actions/index";
 
-export default function(state = {}, action) {
+export default function(state = [], action) {
     switch (action.type) {
         case FETCH_CHARACTERS:
             return action.payload;

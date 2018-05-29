@@ -1,4 +1,3 @@
-import _ from "lodash";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -18,7 +17,7 @@ class CharactersIndex extends Component {
 
     renderCharacters() {
 
-        return _.map(this.props.characters, character => {
+        return this.props.characters.map(character => {
             return (
                 <li className="characterItem" key={character.id}>
                     <img src={character.thumbnail.path+"."+character.thumbnail.extension} width="100" height="100"/>
@@ -33,14 +32,10 @@ class CharactersIndex extends Component {
     }
 
     handlePrevClick(){
-        const newOffset = this.state.offset-50;
-        this.props.fetchCharacters(newOffset);
-        this.setState(() => ( {offset: newOffset}));
+        this.setState({offset: this.state.offset-50} , () =>{this.props.fetchCharacters(this.state.offset)});
     }
     handleNextClick(){
-        const newOffset = this.state.offset+50;
-        this.props.fetchCharacters(newOffset);
-        this.setState(() => ( {offset: newOffset}));
+        this.setState({offset: this.state.offset+50} , () =>{this.props.fetchCharacters(this.state.offset)});
 
     }
 

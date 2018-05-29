@@ -36,14 +36,13 @@
 .cardImage{
     grid-column:1;
 }
-.characterDescription{
+.description{
     border-radius: 2px ;
     background: #d3d3d3;
-
-
 }
 
-.characterDetail{
+
+.itemDetail{
     display : flex;
     flex-direction: column;
     grid-column:2;
