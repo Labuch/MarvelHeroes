@@ -1,5 +1,5 @@
-import cryptoJS from  'crypto-js';
 import axios from 'axios';
+import md5 from 'blueimp-md5';
 
 export const FETCH_CHARACTERS = "fetch_characters";
 export const FETCH_CHARACTER_DETAIL = "fetch_character_detail";
@@ -18,7 +18,7 @@ const BASE_URL = "http://gateway.marvel.com/";
 
 const getparams =(offset)=>{
     const ts = Date.now();
-    const hash = cryptoJS.MD5(ts+API_PRIVATE+API_PUBLIC).toString();
+    const hash = md5(ts + API_PRIVATE + API_PUBLIC);
     return ({params :
             { ts: ts,  apikey: API_PUBLIC , hash:hash, limit:50, offset:offset }
             } );

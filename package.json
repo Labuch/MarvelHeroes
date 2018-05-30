@@ -6,7 +6,6 @@
   "repository": "https://github.com/Labuch/MarvelHeroes.git",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
   "author": "",
@@ -18,20 +17,15 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "chai": "^3.5.0",
-    "chai-jquery": "^2.0.0",
     "eslint-config-airbnb": "^16.1.0",
     "jsdom": "^8.1.0",
-    "mocha": "^2.4.5",
     "webpack": "^4.10.1",
     "webpack-cli": "^2.1.4",
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "crypto": "^1.0.1",
-    "crypto-js": "^3.1.9-1",
-    "lodash": "^3.10.1",
+    "blueimp-md5": "^2.10.0",
     "react": "16.3.2",
     "react-dom": "16.3.2",
     "react-redux": "5.0.7",
